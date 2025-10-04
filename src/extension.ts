@@ -73,6 +73,8 @@ class MarketIndicatorView extends PanelMenu.Button {
     this._indicatorView = new St.Label({
       y_align: Clutter.ActorAlign.CENTER,
       style_class: 'indicator',
+      x_expand: true,
+      natural_width: 120,
     });
 
     this._statusView = new St.Label({
@@ -160,6 +162,8 @@ class MarketIndicatorView extends PanelMenu.Button {
 
   _displayText(text) {
     this._indicatorView.text = text;
+    // Set tooltip to show full value on hover
+    this._indicatorView.set_tooltip_text(text);
   }
 
   _updatePopupItemLabel(err?) {
